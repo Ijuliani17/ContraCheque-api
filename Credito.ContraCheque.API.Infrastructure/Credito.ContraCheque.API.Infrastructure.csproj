@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\InserirNovoFuncionario.sql" />
+    <None Remove="Scripts\ObterFuncionarioPorId.sql" />
+    <None Remove="Scripts\ObterFuncionarios.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\InserirNovoFuncionario.sql" />
+    <EmbeddedResource Include="Scripts\ObterFuncionarioPorId.sql" />
+    <EmbeddedResource Include="Scripts\ObterFuncionarios.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.28" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Credito.ContraCheque.API.Domain\Credito.ContraCheque.API.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
