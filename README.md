@@ -39,5 +39,12 @@ Todas as informações de utilização dos endpoints expostos se encontram no sw
 # Observações:
 Os dois dockerfiles são separados para caso a execução seja feita localmente ou por uma ferramenta de CI e CD com as alterações na criação da aplicação de acordo com a pipeline para criação do Artefato da Aplicação.
 
+Após o pull da aplicação na sua maquina, para executa-lo será preciso ter o docker instalado e executar os seguintes passos:
+- Acessar o diretorio da aplicação.
+- Abrir o cmd e executar docker build -t api-contra-cheque_image .
+- Executar o docker run -d -p 5070:8080 --name api-contra-cheque api-contra-cheque_image
+
+
+
 Os endpoints estão com as decrições de funcionalidades assim como os pontos de atenção que ele solicita.
 
