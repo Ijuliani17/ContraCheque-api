@@ -41,10 +41,8 @@ Os dois dockerfiles são separados para caso a execução seja feita localmente 
 
 Após o pull da aplicação na sua maquina, para executa-lo será preciso ter o docker instalado e executar os seguintes passos:
 - Acessar o diretorio da aplicação.
-- Abrir o cmd e executar docker build -t api-contra-cheque_image .
-- Executar o docker run -d -p 5070:8080 --name api-contra-cheque api-contra-cheque_image
-
-
+- Abrir o cmd e executar `docker build -t api-contra-cheque_image .`
+- Executar o `docker run -d -p 5070:8080 --name api-contra-cheque api-contra-cheque_image`
 
 Os endpoints estão com as decrições de funcionalidades assim como os pontos de atenção que ele solicita.
 
