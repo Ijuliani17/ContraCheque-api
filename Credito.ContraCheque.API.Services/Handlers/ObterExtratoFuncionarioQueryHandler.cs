@@ -42,7 +42,7 @@ namespace Credito.ContraCheque.API.Services.Handlers
             {
                 var dadosFuncionario = (await _funcionariosRepository.ObterFuncionarioPorIdAsync(request.IdFuncionario))?.FirstOrDefault();
 
-                if (dadosFuncionario is null || dadosFuncionario.Equals(default) || dadosFuncionario.ExternalId.Equals(Guid.Empty))
+                if (dadosFuncionario is null || dadosFuncionario.Equals(default))
                     return ResponseContract<ExtratoFuncionarioResponse>
                         .ComDescricaoErro(MotivoErro.NotFound, "Funcionario não encontrado.");
 

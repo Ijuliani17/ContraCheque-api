@@ -17,6 +17,7 @@ namespace Credito.ContraCheque.API
         const string CORS_DEFAULT_POLICY = "Default";
         public static void ConfigurarApi(this WebApplicationBuilder builder)
         {
+            var env = builder.Environment;
             var configuration = builder.Configuration;
 
             #region Configurações de Localização
@@ -79,21 +80,21 @@ namespace Credito.ContraCheque.API
 
             builder.Services.AddEndpointsApiExplorer();
 
-#if DEBUG
-            builder.Services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1",
-                    new OpenApiInfo
-                    {
-                        Title = "API - V1",
-                        Version = "v1"
-                    }
-                 );
+            if(!env.IsProduction())
+                builder.Services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1",
+                        new OpenApiInfo
+                        {
+                            Title = "API - V1",
+                            Version = "v1"
+                        }
+                     );
 
-                var filePath = Path.Combine(System.AppContext.BaseDirectory, "Credito.ContraCheque.Api.xml");
-                c.IncludeXmlComments(filePath);
-            });
-#endif
+                    var filePath = Path.Combine(System.AppContext.BaseDirectory, "Credito.ContraCheque.Api.xml");
+                    c.IncludeXmlComments(filePath);
+                });
+
 
             builder.Services.ConfigurarServicos(configuration: configuration);
             builder.Services.ConfigurarInfraestrutura(dbSettings =>
