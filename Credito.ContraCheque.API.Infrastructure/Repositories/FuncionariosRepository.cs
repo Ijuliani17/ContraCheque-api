@@ -23,7 +23,6 @@ namespace Credito.ContraCheque.API.Infrastructure.Repositories
         {
             var query = string.Format(GetType().ObterConteudoArquivo("Scripts.ObterFuncionarioPorId.sql"), id.ToString().ToUpper());
 
-
             var resultado = await _session.Connection.QueryAsync<Funcionario>(query);
             return (await _session.Connection.QueryAsync<Funcionario>(query))
                 .RetornaListaNaoNula();

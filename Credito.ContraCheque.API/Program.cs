@@ -4,6 +4,8 @@ using Serilog.Events;
 using Serilog.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
+var env = builder.Environment;
+
 
 builder.Logging
     .ClearProviders()
@@ -21,11 +23,15 @@ builder.ConfigurarApi();
 
 var app = builder.Build();
 
-#if DEBUG
+Console.WriteLine(env.IsProduction());
+
+if (!env.IsProduction())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
-#endif
+}
 
 app.UseHttpsRedirection();
+
 app.MapControllers();
 app.Run();
